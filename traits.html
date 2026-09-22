@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BBotDB — Card Traits</title>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="traits-page-body">
+
+    <!-- ================================
+         TRAITS HEADER
+    ================================= -->
+
+    <header class="traits-page-header">
+
+        <div class="traits-header-content">
+
+            <div>
+                <p class="traits-eyebrow">
+                    BBotDB
+                </p>
+
+                <h1>
+                    BasketBot Card Traits
+                </h1>
+
+                <p>
+                    Search through all available card traits.
+                </p>
+            </div>
+
+            <a
+                href="./index.html"
+                class="traits-home-button"
+            >
+                Home
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================================
+         TRAITS PAGE
+    ================================= -->
+
+    <main class="traits-page">
+
+        <!-- Controls -->
+
+        <section class="traits-controls">
+
+            <div class="traits-search">
+
+                <input
+                    type="text"
+                    id="trait-search"
+                    placeholder="Search traits..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <div class="traits-level-filter">
+
+                <label for="level-filter">
+                    Level
+                </label>
+
+                <select id="level-filter">
+
+                    <option value="all">
+                        All Levels
+                    </option>
+
+                    <option value="1">
+                        Level 1
+                    </option>
+
+                    <option value="2">
+                        Level 2
+                    </option>
+
+                    <option value="3">
+                        Level 3
+                    </option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- Trait Results -->
+
+        <section class="traits-results">
+
+            <div class="traits-results-header">
+
+                <div>
+                    <h2>
+                        Traits
+                    </h2>
+
+                    <p>
+                        Browse available BasketBot card traits.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div id="trait-list"></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================================
+         FOOTER
+    ================================= -->
+
+    <footer>
+
+        <p>
+            BBotDB — Community BasketBot Database
+        </p>
+
+    </footer>
+
+
+    <script src="./traits.js"></script>
+
+
+    <script>
+
+        const traitList = document.getElementById("trait-list");
+        const searchInput = document.getElementById("trait-search");
+        const levelFilter = document.getElementById("level-filter");
+
+
+        function displayTraits() {
+
+            traitList.innerHTML = "";
+
+            const searchTerm =
+                searchInput.value.toLowerCase();
+
+            const selectedLevel =
+                levelFilter.value;
+
+
+            const filteredTraits = traits.filter(trait => {
+
+                const matchesSearch =
+                    trait.name
+                        .toLowerCase()
+                        .includes(searchTerm) ||
+
+                    trait.description
+                        .toLowerCase()
+                        .includes(searchTerm);
+
+
+                const matchesLevel =
+                    selectedLevel === "all" ||
+
+                    trait.levels.includes(
+                        Number(selectedLevel)
+                    );
+
+
+                return matchesSearch && matchesLevel;
+
+            });
+
+
+            filteredTraits.forEach(trait => {
+
+                const traitElement =
+                    document.createElement("div");
+
+
+                traitElement.className =
+                    "trait-card";
+
+
+                const levelText =
+                    trait.levels
+                        .map(level => `Level ${level}`)
+                        .join(" • ");
+
+
+                traitElement.innerHTML = `
+
+                    <div class="trait-card-header">
+
+                        <h2>
+                            ${trait.name}
+                        </h2>
+
+                        <span class="trait-level">
+                            ${levelText}
+                        </span>
+
+                    </div>
+
+
+                    <p class="trait-description">
+                        ${trait.description}
+                    </p>
+
+                `;
+
+
+                traitList.appendChild(traitElement);
+
+            });
+
+        }
+
+
+        searchInput.addEventListener(
+            "input",
+            displayTraits
+        );
+
+
+        levelFilter.addEventListener(
+            "change",
+            displayTraits
+        );
+
+
+        displayTraits();
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BBotDB Card</title>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <!-- Rarity frame -->
+    <div id="rarity-frame" aria-hidden="true">
+        <img id="rarity-frame-image" src="" alt="">
+    </div>
+
+
+    <!-- Page content -->
+    <div id="card-page-content">
+
+        <header class="card-page-header">
+
+            <nav class="card-navigation">
+
+                <button id="home-button">
+                    Home
+                </button>
+
+                <button id="previous-card">
+                    ← Previous
+                </button>
+
+                <div class="card-page-search-wrapper">
+
+                    <input
+                        type="text"
+                        id="card-page-search"
+                        placeholder="Search cards..."
+                        autocomplete="off"
+                    >
+
+                    <div id="card-search-results"></div>
+
+                </div>
+
+                <button id="next-card">
+                    Next →
+                </button>
+
+            </nav>
+
+        </header>
+
+
+        <main class="card-page">
+
+            <!-- Main Card Profile -->
+            <section class="card-profile">
+
+                <div class="card-profile-information">
+
+                    <h1 id="player-name">
+                        Player Name
+                    </h1>
+
+                    <p id="player-rarity">
+                        Rarity
+                    </p>
+
+                    <p id="player-position">
+                        Position
+                    </p>
+
+                    <p id="player-height">
+                        Height
+                    </p>
+
+
+                    <!-- Base Stats -->
+                    <section class="profile-section">
+
+                        <h2>Base Stats</h2>
+
+                        <div class="profile-stats">
+
+                            <div class="profile-stat">
+                                <span>Shooting</span>
+                                <strong id="stat-shooting">--</strong>
+                            </div>
+
+                            <div class="profile-stat">
+                                <span>Finishing</span>
+                                <strong id="stat-finishing">--</strong>
+                            </div>
+
+                            <div class="profile-stat">
+                                <span>Defending</span>
+                                <strong id="stat-defending">--</strong>
+                            </div>
+
+                            <div class="profile-stat">
+                                <span>Playmaking</span>
+                                <strong id="stat-playmaking">--</strong>
+                            </div>
+
+                            <div class="profile-stat profile-stat-total">
+                                <span>Total</span>
+                                <strong id="stat-total">--</strong>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- Card Information -->
+                    <section class="profile-section">
+
+                        <h2>Card Information</h2>
+
+                        <p>
+                            <strong>Market:</strong>
+                            <span id="player-market">Unknown</span>
+                        </p>
+
+                        <p>
+                            <strong>Community Tier:</strong>
+                            <span id="player-tier">Not yet rated</span>
+                        </p>
+
+                    </section>
+
+
+                    <!-- Traits -->
+                    <section class="profile-section">
+
+                        <h2>Traits</h2>
+
+                        <div id="player-traits">
+                            No traits listed.
+                        </div>
+
+                    </section>
+
+                </div>
+
+
+                <!-- Card Art -->
+                <div class="card-profile-art">
+
+                    <img
+                        id="player-card-image"
+                        src=""
+                        alt="BasketBot card"
+                    >
+
+                </div>
+
+            </section>
+
+
+            <!-- Similar Cards -->
+            <section class="card-detail-section">
+
+                <button id="similar-cards-toggle">
+                    Show Similar Cards
+                </button>
+
+                <div id="similar-cards" class="collapsible-content">
+
+                    <!-- Similar cards inserted by card.js -->
+
+                </div>
+
+            </section>
+
+
+            <!-- Common Teammates -->
+            <section class="card-detail-section">
+
+                <h2>Most Common Teammates</h2>
+
+                <div id="common-teammates">
+
+                    <p>
+                        Teammate data coming soon.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- Streaks -->
+            <section class="card-detail-section">
+
+                <h2>Streaks</h2>
+
+                <div class="streak-layout">
+
+                    <div>
+
+                        <h3>Recent Streaks</h3>
+
+                        <div id="recent-streaks">
+
+                            <p>
+                                Streak data coming soon.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>Highest Streaks</h3>
+
+                        <div id="highest-streaks">
+
+                            <p>
+                                Streak data coming soon.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Community Averages -->
+            <section class="card-detail-section">
+
+                <h2>Community Averages</h2>
+
+                <div id="community-averages">
+
+                    <p>
+                        Community data coming soon.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- Public Comments -->
+            <section class="card-detail-section">
+
+                <h2>Public Comments</h2>
+
+                <div id="community-comments">
+
+                    <p>
+                        Community comments coming soon.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <footer>
+
+            <p>
+                BBotDB — Community BasketBot Database
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <script src="./card-data.js"></script>
+    <script src="./card.js"></script>
+
+</body>
+
+</html>
